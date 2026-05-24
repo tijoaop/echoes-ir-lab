@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECHOES // IR Lab</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="brand">ECHOES // CASO: FANTASMA NO MONÓLITO</div>
+        <div class="hud-stats">
+            <span>TEMPO SIMULADO: <strong id="hud-clock">03:14 AM</strong></span>
+            <span>APM HEALTH: <strong class="status-ok">200 OK</strong></span>
+            <span>RISCO TÁTICO: <strong id="hud-risk" class="status-warn">DESCONHECIDO</strong></span>
+        </div>
+    </header>
+
+    <main>
+        <!-- Timeline Inject Feed -->
+        <div id="timeline-panel" class="panel">
+            <div class="panel-header">Inbox & Injects (Comms)</div>
+            <div class="panel-content" id="inject-feed">
+                <!-- Injects carregam aqui via JS -->
+            </div>
+        </div>
+
+        <!-- Terminal Investigation -->
+        <div id="terminal-panel" class="panel">
+            <div class="panel-header">Terminal Operacional // Query Engine</div>
+            <div class="panel-content" style="display: flex; flex-direction: column;">
+                <div id="terminal-output" style="flex:1; overflow-y: auto;">
+                    <span class="log-sys">ECHOES OS v2.4 initialized.</span>
+                    <span class="log-sys">Conectado aos conectores de log: Azure Firewall, Entra ID, Legacy-DB-Audit.</span>
+                    <span class="log-sys">Digite 'help' para comandos.</span>
+                </div>
+                <div class="terminal-input-row">
+                    <span class="prompt">root@soc:~#</span>
+                    <input type="text" id="cmd-input" autocomplete="off" autofocus spellcheck="false">
+                </div>
+            </div>
+        </div>
+
+        <!-- Evidence Board -->
+        <div id="evidence-panel" class="panel">
+            <div class="panel-header">Mural de Evidências (IOCs)</div>
+            <div class="panel-content">
+                <div class="evidence-grid" id="evidence-grid">
+                    <!-- IOCs adicionados via comando 'collect' -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Hypothesis & Action -->
+        <div id="hypothesis-panel" class="panel">
+            <div class="panel-header">Hipótese & Ação</div>
+            <div class="panel-content" id="action-feed">
+                <div class="hypothesis-box">
+                    <strong>Cenário Atual:</strong>
+                    <p style="margin-top: 5px; color: var(--text-muted);">O monitoramento do monólito indica saúde plena (200 OK). Porém, o proxy reverso nota pacotes de resposta anômalos. L1 ia fechar o ticket. Você interveio.</p>
+                </div>
+                
+                <h4 style="margin: 15px 0 10px 0; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Ações Disponíveis</h4>
+                <button class="btn" onclick="executeAction('ask_l1')">Contatar L1: "Como validaram o 200 OK?"</button>
+                <button class="btn btn-critical" onclick="executeAction('escalate_crisis')" style="display:none;" id="btn-escalate">Declarar Crise: Isolar Legacy API</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Importação dos Scripts -->
+    <script src="js/scenarios.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
