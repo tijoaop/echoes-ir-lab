@@ -94,19 +94,18 @@ function renderInjects() {
         </div>`;
     });
 }
-
 function executeAction(action) {
     if (action === 'ask_l1') {
         advanceTime(5);
-        addInject("L1 Analyst", "Verificamos o /health da API bridge. Retorna HTTP 200. Nenhuma flag de erro no AppInsights. Pra mim é falso positivo do proxy.");
-        printTerm("Dica: L1 está confiando cegamente no APM. Tente cruzar logs de Entra ID com o tráfego do banco legado (query entra_id).", 'sys');
+        addInject("L1 Analyst", "Sinceramente, achei que ele só estava fazendo hora extra ou adiantando uma demanda do banco de dados de madrugada. Não chequei o DLP.");
+        printTerm("Dica: Confiar em intenções é falho. Analise os rastros de dados com os comandos: query db_audit e query dlp.", 'sys');
     }
     if (action === 'escalate_crisis') {
         document.getElementById('action-feed').innerHTML = `
             <div class="hypothesis-box" style="border-color: var(--accent-green)">
-                <strong style="color: var(--accent-green)">CRÍTICO: Exfiltração Contida</strong>
-                <p style="margin-top: 5px;">Você identificou o ataque de Cadeia de Suprimentos abusando da Workload Identity. O "200 OK" mascarava chamadas de banco extraindo tabelas.</p>
-                <p style="margin-top: 10px;"><strong>Debriefing (Govern):</strong> O uso do Zero Trust exigia privilégio mínimo, mas a API legada tinha permissão SELECT *. Revise as políticas do Entra ID.</p>
+                <strong style="color: var(--accent-green)">CRÍTICO: Shadow Investigation Iniciada</strong>
+                <p style="margin-top: 5px;">Você correlacionou o acesso anômalo (UEBA), a extração massiva (DB_Audit) e a exfiltração externa (DLP) para o Dropbox do funcionário em processo de desligamento.</p>
+                <p style="margin-top: 10px;"><strong>Ação Tomada:</strong> Em vez de um bloqueio bruto que o alertaria, o comitê acionou a perícia para espelhar a máquina remotamente e revogou os acessos críticos de forma granular, garantindo a cadeia de custódia para um processo legal contra o ex-colaborador.</p>
             </div>`;
     }
 }
