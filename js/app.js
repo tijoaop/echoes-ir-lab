@@ -95,17 +95,21 @@ function renderInjects() {
     });
 }
 function executeAction(action) {
-    if (action === 'ask_l1') {
-        advanceTime(5);
-        addInject("L1 Analyst", "Sinceramente, achei que ele só estava fazendo hora extra ou adiantando uma demanda do banco de dados de madrugada. Não chequei o DLP.");
-        printTerm("Dica: Confiar em intenções é falho. Analise os rastros de dados com os comandos: query db_audit e query dlp.", 'sys');
+    if (action === 'ask_manager') {
+        advanceTime(45);
+        addInject("Gestor Imediato", "Confidencial: O Castro tem estado estranhamente solícito ultimamente. Pediu proativamente para revisar carteiras antigas de investimentos que já não eram da alçada dele.");
+        printTerm("Dica: Comportamento anômalo confirmado. Busque a materialidade técnica com 'query m365_audit' e 'query exchange'.", 'sys');
+    }
+    if (action === 'consult_legal') {
+        advanceTime(60);
+        addInject("Diretoria Jurídica", "DIRETRIZ CRÍTICA: Preservação imediata e silenciosa das evidências! Abstenção de ações de bloqueio brusco agora. Precisamos de cadeia de custódia compatível com foro trabalhista/cível. Se ele perceber, fará wipe nos dados.");
     }
     if (action === 'escalate_crisis') {
         document.getElementById('action-feed').innerHTML = `
             <div class="hypothesis-box" style="border-color: var(--accent-green)">
-                <strong style="color: var(--accent-green)">CRÍTICO: Shadow Investigation Iniciada</strong>
-                <p style="margin-top: 5px;">Você correlacionou o acesso anômalo (UEBA), a extração massiva (DB_Audit) e a exfiltração externa (DLP) para o Dropbox do funcionário em processo de desligamento.</p>
-                <p style="margin-top: 10px;"><strong>Ação Tomada:</strong> Em vez de um bloqueio bruto que o alertaria, o comitê acionou a perícia para espelhar a máquina remotamente e revogou os acessos críticos de forma granular, garantindo a cadeia de custódia para um processo legal contra o ex-colaborador.</p>
+                <strong style="color: var(--accent-green)">CRÍTICO: Comitê de Ética Acionado</strong>
+                <p style="margin-top: 5px;">Evidências consolidadas: Download de 12GB (vs 200MB baseline), ZIPs cifrados enviados para Gmail e 47 documentos (incluindo PII e atas do Conselho) expostos via OneDrive.</p>
+                <p style="margin-top: 10px;"><strong>Hotwash (C5/C6):</strong> A matriz SI-RH-Jurídico funcionou. Comitê delibera pela <em>Justa Causa por Quebra de Confiança</em>, combinada com medida judicial cautelar (tutela inibitória) para busca e apreensão. A cadeia de custódia foi validada.</p>
             </div>`;
     }
 }
