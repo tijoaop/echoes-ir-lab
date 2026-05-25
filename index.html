@@ -58,12 +58,13 @@
             <div class="panel-content" id="action-feed">
                 <div class="hypothesis-box">
                     <strong>Cenário Atual:</strong>
-                    <p style="margin-top: 5px; color: var(--text-muted);">O monitoramento do monólito indica saúde plena (200 OK). Porém, o proxy reverso nota pacotes de resposta anômalos. L1 ia fechar o ticket. Você interveio.</p>
+                    <p style="margin-top: 5px; color: var(--text-muted);">Analista Sênior de Investimentos pediu demissão para ir para um concorrente. SIEM aponta anomalias. Sua missão: investigar, garantir a cadeia de custódia e coordenar com RH/Jurídico.</p>
                 </div>
                 
                 <h4 style="margin: 15px 0 10px 0; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Ações Disponíveis</h4>
-                <button class="btn" onclick="executeAction('ask_l1')">Contatar L1: "Como validaram o 200 OK?"</button>
-                <button class="btn btn-critical" onclick="executeAction('escalate_crisis')" style="display:none;" id="btn-escalate">Declarar Crise: Isolar Legacy API</button>
+                <button class="btn" onclick="executeAction('ask_manager')">Sondar Gestor: "Houve mudança de comportamento?"</button>
+                <button class="btn" onclick="executeAction('consult_legal')">Acionar Jurídico: "Posso bloquear a conta?"</button>
+                <button class="btn btn-critical" onclick="executeAction('escalate_crisis')" style="display:none;" id="btn-escalate">Convocar Comitê de Ética</button>
             </div>
         </div>
     </main>
